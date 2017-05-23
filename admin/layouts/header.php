@@ -4,6 +4,7 @@ if (empty($_SESSION['username'])){
 	header('location:../index.php');	
 } else {
 	include "../conn.php";
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -37,18 +38,12 @@ if (empty($_SESSION['username'])){
     <!-- Theme style -->
     <link href="../css/style.css" rel="stylesheet" type="text/css" />
 
-
-
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
           <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
           <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
           <![endif]-->
-
-          <style type="text/css">
-
-          </style>
       </head>
       <body class="skin-black">
         <!-- header logo: style can be found in header.less -->
@@ -99,21 +94,7 @@ if (empty($_SESSION['username'])){
                         </div>
                     </nav>
                 </header>
-                <?php
-$timeout = 10; // Set timeout minutes
-$logout_redirect_url = "../login.html"; // Set logout URL
 
-$timeout = $timeout * 60; // Converts minutes to seconds
-if (isset($_SESSION['start_time'])) {
-    $elapsed_time = time() - $_SESSION['start_time'];
-    if ($elapsed_time >= $timeout) {
-        session_destroy();
-        echo "<script>alert('Session Anda Telah Habis!'); window.location = '$logout_redirect_url'</script>";
-    }
-}
-$_SESSION['start_time'] = time();
-?>
-<?php } ?>
                 <div class="wrapper row-offcanvas row-offcanvas-left">
                     <!-- Left side column. contains the logo and sidebar -->
                     <aside class="left-side sidebar-offcanvas">

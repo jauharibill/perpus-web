@@ -52,18 +52,18 @@
                                         <li><a href="input-admin.php"><i class="fa fa-angle-double-right"></i> Tambah Admin</a></li>
                                     </ul>
                                 </li> -->
-                              <!--   <li class="treeview">
+                                <li class="treeview">
                                 <a href="#">
                                     <i class="fa fa-file"></i>
                                     <span>laporan</span>
                                     <i class="fa fa-angle-left pull-right"></i>
                                 </a>
                                     <ul class="treeview-menu">
-                                        <li><a href="404.php"><i class="fa fa-angle-double-right"></i> Laporan Anggota</a></li>
-                                        <li><a href="404.php"><i class="fa fa-angle-double-right"></i> Laporan Buku</a></li>
+                                        <li><a href="laporananggota.php"><i class="fa fa-angle-double-right"></i> Laporan Anggota</a></li>
+                                        <li><a href="laporanbuku.php"><i class="fa fa-angle-double-right"></i> Laporan Buku</a></li>
                                         
                                     </ul>
-                                </li> -->
+                                </li>
                                 <!-- <li>
                                     <a href="404.php">
                                         <i class="fa fa-check-square"></i> <span>Backup Data</span>

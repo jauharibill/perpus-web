@@ -124,8 +124,8 @@
 				<div class="row">
 					<div class="col-md-12">
 						<div class="section-title st-center">
-							<h3>Contact Us</h3>
-							<p>Get in Touch with Us</p>
+							<h3>Hubungi Kami</h3>
+							<p>Info Lebih Lanjut</p>
 						</div>
 					</div>
 				</div>
