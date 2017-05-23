@@ -1,538 +1,184 @@
-
-<?php include "conn.php"; ?>
 <!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>PerPusWeb(Perpustakaan Berbasis Web)</title>
-    <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
-    <meta name="description" content="Perpustakaan Berbasis Web">
-    <meta name="keywords" content="Perpustakaan, perpus, online, website">
-    <!-- bootstrap 3.0.2 -->
-    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <!-- font Awesome -->
-    <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-    <!-- Ionicons -->
-    <link href="css/ionicons.min.css" rel="stylesheet" type="text/css" />
-    <!-- Morris chart -->
-    <link href="css/morris/morris.css" rel="stylesheet" type="text/css" />
-    <!-- jvectormap -->
-    <link href="css/jvectormap/jquery-jvectormap-1.2.2.css" rel="stylesheet" type="text/css" />
-    <!-- Date Picker -->
-    <link href="css/datepicker/datepicker3.css" rel="stylesheet" type="text/css" />
-    <!-- fullCalendar -->
-    <!-- <link href="css/fullcalendar/fullcalendar.css" rel="stylesheet" type="text/css" /> -->
-    <!-- Daterange picker -->
-    <link href="css/daterangepicker/daterangepicker-bs3.css" rel="stylesheet" type="text/css" />
-    <!-- iCheck for checkboxes and radio inputs -->
-    <link href="css/iCheck/all.css" rel="stylesheet" type="text/css" />
-    <!-- bootstrap wysihtml5 - text editor -->
-    <!-- <link href="css/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css" rel="stylesheet" type="text/css" /> -->
-    <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
-    <!-- Theme style -->
-    <link href="css/style.css" rel="stylesheet" type="text/css" />
-    
-    <script type="text/javascript">
-// 1 detik = 1000
-window.setTimeout("waktu()",1000);  
-function waktu() {   
-	var tanggal = new Date();  
-	setTimeout("waktu()",1000);  
-	document.getElementById("output").innerHTML = tanggal.getHours()+":"+tanggal.getMinutes()+":"+tanggal.getSeconds();
-}
-</script>
-<script language="JavaScript">
-var tanggallengkap = new String();
-var namahari = ("Minggu Senin Selasa Rabu Kamis Jumat Sabtu");
-namahari = namahari.split(" ");
-var namabulan = ("Januari Februari Maret April Mei Juni Juli Agustus September Oktober November Desember");
-namabulan = namabulan.split(" ");
-var tgl = new Date();
-var hari = tgl.getDay();
-var tanggal = tgl.getDate();
-var bulan = tgl.getMonth();
-var tahun = tgl.getFullYear();
-tanggallengkap = namahari[hari] + ", " +tanggal + " " + namabulan[bulan] + " " + tahun;
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Perpustakaan UIN Malang</title>
+		
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,800italic,800,700italic,700,600italic,400italic,600,300italic,300|Oswald:400,300,700' rel='stylesheet' type='text/css'>
+		<!-- Bootstrap -->
+		<link href="web/css/bootstrap.min.css" rel="stylesheet">
+		<link href="web/css/font-awesome.min.css" rel="stylesheet">
 
-	var popupWindow = null;
-	function centeredPopup(url,winName,w,h,scroll){
-	LeftPosition = (screen.width) ? (screen.width-w)/2 : 0;
-	TopPosition = (screen.height) ? (screen.height-h)/2 : 0;
-	settings ='height='+h+',width='+w+',top='+TopPosition+',left='+LeftPosition+',scrollbars='+scroll+',resizable'
-	popupWindow = window.open(url,winName,settings)
-}
-</script>
+
+		<link href="web/css/owl.carousel.css" rel="stylesheet">
+		<link href="web/css/owl.theme.css" rel="stylesheet">
+		<link href="web/css/owl.transitions.css" rel="stylesheet">
+
+		<link href="web/css/style.css" rel="stylesheet">
 
 
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-        <!--[if lt IE 9]>
-          <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-          <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-          <![endif]-->
 
-          <style type="text/css">
+		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+		<script src="web/js/html5shiv.min.js"></script>
+		<script src="web/js/respond.min.js"></script>
+		<![endif]-->
+	</head>
+	<body data-spy="scroll" data-target=".main-nav">
 
-          </style>
-      </head>
-      <body class="skin-black">
-        <!-- header logo: style can be found in header.less -->
-        <header class="header">
-            <a href="/" class="logo">
-              PERPUSTAKAAN 
-            </a>
+		<header class="st-navbar">
+			<nav class="navbar navbar-default navbar-fixed-top clearfix" role="navigation">
+				<div class="container"><!-- Brand and toggle get grouped for better mobile display -->
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#sept-main-nav">
+							<span class="sr-only">Toggle navigation</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+						<a class="navbar-brand" href="#"><span class="fa fa-book"></span> Perpustakaan</a>
+					</div>
+					<!-- Collect the nav links, forms, and other content for toggling -->
+					<div class="collapse navbar-collapse main-nav" id="sept-main-nav">
+						<ul class="nav navbar-nav navbar-right">
+							<li class="active"><a href="#home">Home</a></li>
+							<li><a href="#search">Search Book</a></li>
+							<li><a href="#about">About</a></li>
+							<li><a href="#contact">Contact Us</a></li>
+							<li><a href="/login.php">Login</a></li>
+						</ul>
+					</div><!-- /.navbar-collapse -->
+				</div>
+			</nav>
+		</header>
+		
+		<section class="home" id="home" data-stellar-background-ratio="0.4">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="st-home-unit">
+							<div class="hero-txt">
+								<p class="hero-work">Perpustakaan UIN Malang</p>
+								<h2 class="hero-title">Menulislah maka kamu akan hidup selamanya</h2>
+								<!-- <p class="hero-sub-title">We Provide Hight Quality Bootstrap Template</p> -->
+								<!-- <a href="#" class="btn btn-default btn-lg left-btn">Purchase Now</a> -->
+								<a href="#" class="btn btn-main btn-lg">Find Out More</a>
+							</div>
 
-            <!-- Header Navbar: style can be found in header.less -->
-            <nav class="navbar navbar-static-top" role="navigation">
-                <!-- Sidebar toggle button-->
-                <div class="navbar-right">
-                    <ul class="nav navbar-nav">
-                        <!-- Messages: style can be found in dropdown.less-->
-                        <li class="messages-menu">
-                        <table width="1000">
-                          <tr>
-                          <td width="200"><div class="Tanggal"><h4><script language="JavaScript">document.write(tanggallengkap);</script></div></h4></td> 
-                          <td align="left" width="30"> - </td>
-                          <td align="left" width="620"> <h4><div id="output" class="jam" ></div></h4></td>
-                          </tr>
-                        </table>
-                        </li>
-                        <li class="dropdown messages-menu">
-                            <a href="#" data-toggle="modal" data-target="#contact">
-                                <i class="fa fa-envelope"></i>
-                                <!--<span class="label label-success">4</span>-->
-                            </a>
-                            </li>
-                        <!-- User Account: style can be found in dropdown.less -->
-                        <li class="dropdown user user-menu">
-                            <a href="login.html" data-placement="bottom" data-toggle="tooltip" title="Login Admin">
-                                <i class="fa fa-user"></i>
-                            </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </nav>
-                </header>
-                <div class="wrapper row-offcanvas row-offcanvas-left">
-                    <!-- Left side column. contains the logo and sidebar -->
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="mouse-icon"><div class="wheel"></div></div>
+		</section>
 
-                    <aside>
-
-                <!-- Main content -->
-                <section class="content">
-
-                    <!-- Main row -->
-                    <div class="row">
-                    <div class="col-lg-12">
-            <div class="alert alert-info alert-dismissable">
-              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-             <!--<marquee behavior="alternate" direction="left" onmouseover="this.stop();" onmouseout="this.start();">-->
-		<b>Selamat Datang di PerpustakaanUIN Malang, untuk login admin klik <a href="login.html">disini</a></b>
-          </div>
-            </div>
-
-                        <div class="col-md-8">
-                            <section class="panel">
-                              <header class="panel-heading">
-                                  <b>Data Pengunjung Hari Ini</b>
-                            </header>
-                            <div class="panel-body table-responsive">
-                            <?php
-                    $tanggal = date("Y/m/d");
-                    $query1="select * from pengunjung where tgl_kunjung='$tanggal'";
-                    $tampil=mysqli_query($conn, $query1) or die(mysqli_error($conn));
-                    ?>
-                                <table class="table table-hover">
-                                  <thead>
-                                    <tr>
-                                        <th>Nama</th>
-                                        <th>Tanggal</th>
-                                        <th>Jam Berkunjung </th>
-                                        <th>Keperluan</th>
-                                  </tr>
-                              </thead>
-                              
-                                 <?php while($data=mysqli_fetch_array( $tampil))
-                    { ?>
-                    <tbody>
-                    <tr>
-                    <td><?php echo $data['nama']; ?></td>
-                    <td><?php echo $data['tgl_kunjung'];?></td>
-                    <td><?php echo $data['jam_kunjung'];?></td>
-                    <td><?php echo $data['perlu1'];?></td>
-                    <?php   
-              } 
-              ?>
-              
-                      </table><hr />
-                    <?php $tampil=mysqli_query($conn, "select * from pengunjung where tgl_kunjung='$tanggal'");
-                          $user=mysqli_num_rows( $tampil);
-                    ?>
-                  <center><h4>Jumlah Pengunjung Hari Ini : <?php echo "$user"; ?> Orang </h4> </center>
-                </div>
-              </section>
-
-              <section class="content">
-
-                    <div class="row">
-                        <div class="col-xs-12">
-                            <div class="panel">
-                                <header class="panel-heading">
-                                    <b>Data Buku</b>
-
-                                </header>
-                                <!-- <div class="box-header"> -->
-                                    <!-- <h3 class="box-title">Responsive Hover Table</h3> -->
-
-                                <!-- </div> -->
-                                <div class="panel-body table-responsive">
-                                    <div class="box-tools m-b-15">
-                                        <form action="index.php" method="POST">
-                                            <div class="input-group">
-                                            <input type='text' class="form-control input-sm pull-right" style="width: 150px;"  name='qcari' placeholder='Cari berdasarkan Judul' required /> 
-                                                <div class="input-group-btn">
-                                                    <button class="btn btn-sm btn-default" type="submit"><i class="fa fa-search"></i></button>
-                                                </div>
-                                            </div>
-                                        </form>    
-                                    </div>
-                                    <?php
-                                        $query1="select * from data_buku";
-                                        
-                                        if(isset($_POST['qcari'])){
-                                         $qcari=$_POST['qcari'];
-                                         $query1="SELECT * FROM  data_buku 
-                                         where judul like '%$qcari%'
-                                         or pengarang like '%$qcari%'  
-                                         or th_terbit like '%$qcari%'
-                                         or penerbit like '%$qcari%'";
-                                        }
-                                        $tampil=mysqli_query($conn, $query1) or die(mysql_error($conn));
-                                    ?>
-                                    <table id="example" class="table table-hover table-bordered">
-                                      <thead>
-                                          <tr>
-                                            <th><center>Judul </center></th>
-                                            <th><center>Pengarang </center></th>
-                                            <th><center>Tahun Terbit </center></th>
-                                            <th><center>Penerbit </center></th>
-                                            <th><center>Jumlah </center></th>
-                                            <th><center>Lokasi </center></th>
-                                          </tr>
-                                      </thead>
-                                     <?php while($data=mysqli_fetch_array( $tampil))
-                                    { ?>
-                                    <tbody>
-                                        <tr>
-                                        <td><a href="404.php?hal=edit&kd=<?php echo $data['id'];?>"><span class="fa fa-book"></span> <?php echo $data['judul'];?></a></td>
-                                        <td><?php echo $data['pengarang']; ?></td>
-                                        <td><?php echo $data['th_terbit'];?></td>
-                                        <td><?php echo $data['penerbit'];?></td>
-                                        <td><?php echo $data['jumlah_buku'];?></td>
-                                        <td><?php echo $data['lokasi'];?></td>
-                                    <?php   
-                                  } 
-                                  ?>
-                                   </tbody>
-                                </table>
-                   
-                                  <?php $tampil=mysqli_query($conn, "select * from data_buku order by id");
-                                  $buku=mysqli_num_rows( $tampil);
-                                    ?>
-
-                                <center><h4>Jumlah Buku : <?php echo "$buku"; ?> Pcs </h4> </center>
-                                    <div class="text-right" style="margin-top: 10px;">
-                                 <a href="index.php" class="btn btn-sm btn-info">Refresh Buku <i class="fa fa-refresh"></i></a> 
-                                </div>
-                  
-                                </div><!-- /.box-body -->
-                            </div><!-- /.box -->
-                        </div>
-                    </div>
-              <!-- row end -->
-                </section>
-
-                    
-          </div><!--end col-6 -->
-          <div class="col-md-4">
-            <section class="panel">
-                <header class="panel-heading">
-                    <b>Buku Pengunjung</b>
-                </header>
-                <div class="panel-body">
-                    <div class="twt-area">
-                        <form class="form-horizontal style-form" style="margin-top: 20px;" action="insert-pengunjung.php" method="post" enctype="multipart/form-data" name="form1" id="form1">
-                          <div class="form-group">
-                          </div>
-                          <div class="form-group">
-                              <label class="col-sm-2 col-sm-2 control-label">Nama</label>
-                              <div class="col-sm-10">
-                                  <input name="nama" type="text" id="nama" class="form-control" placeholder="Nama Anda" required />
-                                  <!--<span class="help-block">A block of help text that breaks onto a new line and may extend beyond one line.</span>-->
-                              </div>
-                          </div>
-                          <div class="form-group">
-                              <label class="col-sm-2 col-sm-2 control-label">Gender</label>
-                                  <div class="col-sm-6">
-                                  <select class="form-control" name="jk" id="jk">
-                                  <option> -- Pilih Salah Satu --</option>
-                                  <option value="L">Laki - Laki</option>
-                                  <option value="P">Perempuan</option>
-                                  </select>
-                              </div>
-                          </div>
-                          <div class="form-group">
-                              <label class="col-sm-2 col-sm-2 control-label">Status</label>
-                              <div class="col-sm-6">
-                                  <select class="form-control" name="status" id="status">
-                                  <option> -- Pilih Salah Satu --</option>
-                                  <option value="Umum">Umum</option>
-                                  <option value="Mahasiswa/i">Mahasiswa/i</option>
-                                  <option value="Pekerja">Pekerja</option>
-                                  <option value="Lain-lain">Lain-lain</option>
-                                  </select>
-                              </div>
-                          </div>
-                          <div class="form-group">
-                              <label class="col-sm-2 col-sm-2 control-label">Perlu</label>
-                              <div class="col-sm-10">
-                                  <input name="perlu1" type="text" id="perlu1" class="form-control" placeholder="Keperluan" required />
-                                  <!--<span class="help-block">A block of help text that breaks onto a new line and may extend beyond one line.</span>-->
-                              </div>
-                          </div>
-                          <div class="form-group">
-                              <label class="col-sm-2 col-sm-2 control-label">Cari?</label>
-                              <div class="col-sm-10">
-                                  <input name="cari" type="text" id="cari" class="form-control" placeholder="Apa yang anda cari.?" required />
-                                  <!--<span class="help-block">A block of help text that breaks onto a new line and may extend beyond one line.</span>-->
-                              </div>
-                          </div>
-                          <div class="form-group">
-                              <label class="col-sm-2 col-sm-2 control-label">Saran</label>
-                              <div class="col-sm-10">
-                                  <textarea rows="4" name="saran" id="saran" class="form-control" placeholder="Saran Anda untuk PerPusWeb" cols="25"></textarea>
-                                  <!--<span class="help-block">A block of help text that breaks onto a new line and may extend beyond one line.</span>-->
-                              </div>
-                          </div>
-                          <div class="form-group">
-                              <label class="col-sm-2 col-sm-2 control-label">Tanggal</label>
-                              <div class="col-sm-10">
-                                  <input name="tgl_kunjung" type="text" class="form-control" id="tgl_kunjung" value="<?php echo "".date("Y/m/d").""; ?>" readonly="readonly"/>
-                              </div>
-                          </div>
-                          <div class="form-group">
-                              <label class="col-sm-2 col-sm-2 control-label">Jam</label>
-                              <div class="col-sm-10">
-                                  <input name="jam_kunjung" type="text" class="form-control" id="jam_kunjung" value="<?php echo "".date("H:i:s").""?>" readonly="readonly"/>
-                              </div>
-                          </div>
-                          <div class="form-group" style="margin-bottom: 20px;">
-                              <label class="col-sm-2 col-sm-2 control-label"></label>
-                              <div class="col-sm-8">
-                                  <input type="submit" value="Simpan" name="simpan" class="btn btn-sm btn-primary" />&nbsp;
-	                              <a href="input-anggota.php" class="btn btn-sm btn-danger">Batal </a>
-                              </div>
-                          </div>
-
-                        </form>
-                    </div>
-                </div>
-            </section>
-        </div>
-
-                    </div>
-                      </section>
-                  
-<!-- Data Total Pengunjung -->                        
-                        <div class="col-md-12">
-                            <section class="panel">
-                              <header class="panel-heading">
-                                <b>  Data Akumulasi Pengunjung</b>
-                            </header>
-                            <div class="panel-body table-responsive">
-                            <?php
-                    $query="select * from pengunjung order by id desc limit 10";
-                    $tampil=mysqli_query($conn, $query) or die(mysql_error($conn));
-                    ?>
-                                <table class="table table-hover">
-                                  <thead>
-                                    <tr>
-                                        <th>Nama</th>
-                                        <th>Jenis Kelamin</th>
-                                        <th>Kelas</th>
-                                        <th>Tanggal</th>
-                                        <th>Jam Berkunjung </th>
-                                        <th>Keperluan</th>
-                                        <th>Buku Yang di Cari</th>
-                                  </tr>
-                              </thead>
-                              
-                                 <?php while($data1=mysqli_fetch_array( $tampil))
-                    { ?>
-                    <tbody>
-                    <tr>
-                    <td><?php echo $data1['nama']; ?></td>
-                    <td><?php echo $data1['jk']; ?></td>
-                    <td><?php echo $data1['kelas'];?></td>
-                    <td><?php echo $data1['tgl_kunjung'];?></td>
-                    <td><?php echo $data1['jam_kunjung'];?></td>
-                    <td><?php echo $data1['perlu1'];?></td>
-                    <td><?php echo $data1['cari'];?></td>
-                    <?php   
-              } 
-              ?>
-              
-                      </table><hr />
-                  <?php $tampil1=mysqli_query($conn, "select * from pengunjung order by id");
-                        $user1=mysqli_num_rows( $tampil1);
-                    ?>
-                  <center><h4>Jumlah Total Pengunjung : <?php echo "$user1"; ?> Orang </h4> </center>
-                  </div>
-              </section>
-
-                    
-          </div>
-          </div>
-              <!-- row end -->
-                <!-- /.content -->
-                <div class="footer-main">
-                    Copyright  UIN Maulana Malik Ibrahim Malang<br><?php echo Date('Y'); ?>
-                </div>
-            </aside><!-- /.right-side -->
-
-        </div><!-- ./wrapper -->
-        
-        <!-- Modal Dialog Contact -->
-<div class="modal fade" id="contact" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="myModalLabel">PerPusWeb Info</h4>
-      </div>
-      <div class="modal-body">
-      PerPusWeb adalah aplikasi perpustakaan bebasis website yang responsif, PerPusWeb Versi ini adalah versi free untuk mendapatkan PerPusWeb Pro Hubungi
-       Hakko Bio Richard di :
-      <table>
-      <tr>
-      <td>No Telepon</td> <td>:</td> <td>0856 949 848 03</td>
-      </tr>
-      <br />
-      <tr>
-      <td>E-mail</td><td>:</td> <td><a href="mailto:hakkobiorichard@gmail.com">hakkobiorichard@gmail.com</a> | <a href="mailto:hakko_bio_richard@yahoo.co.id">hakko_bio_richard@yahoo.co.id</a></td>
-      </tr> 
-      <br />
-      <tr>
-      <td>Blog</td>       <td>:</td> <td><a href="http://www.hakkoblogs.com" target="_blank">www.hakkoblogs.com</a></td>
-      </tr>
-      <br />
-      <tr>
-      <td>Website</td>    <td>:</td> <td><a href="http://www.niqoweb.com" target="_blank">www.niqoweb.com</a></td>
-      </tr>
-       </table>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- end dialog modal -->
+		
+		<section class="about" id="search">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="section-title st-center">
+							<h3>Cari Buku</h3>
+						</div>
+						<div class="row mb90">
+							<form action="/cari.php" method="GET">
+								<div class="col-md-12 input-group">
+									<input type="text" name="q" placeholder="Cari Buku" class="form-control" aria-describedby="search">
+									<span class="input-group-addon"><i class="fa fa-search"></i></span>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
 
 
-        <!-- jQuery 2.0.2 -->
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
-        <script src="js/jquery.min.js" type="text/javascript"></script>
+		<section class="about" id="about">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="section-title st-center">
+							<h3>Selamat Datang di Perpustakaan UIN Malang</h3>
+							<p>Kumpulan buku terbaik uin malang</p>
+						</div>
+						<div class="row mb90">
+							<div class="col-md-6">
+								<p>Texit l, habere se indocti magnosque culpa gravioribus discedere eas indignae diogenem, praetermissum effugiendorum vult dicent, periculum dolere putat. Iucunditatem quid turbulenta patre eae depravatum talem elaborare plerisque repellere, o potiendi tuo aliter, militaris sint tranquillat liberalitati. Locus delicata divelli intemperantes audeam maximisque sitne pulcherrimum aegritudines studium. Habent inveniri fidelissimae aequi andriam laudabilis. Libido censet assiduitas quae probantur tantalo exquisitaque erunt laudatur optari. Late suapte veterum enim qui magna securi eaque proficiscuntur.</p>
+							</div>
+							<div class="col-md-6">
+								<img src="web/photos/about.jpg" alt="" class="img-responsive">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>	
 
-        <!-- jQuery UI 1.10.3 -->
-        <script src="js/jquery-ui-1.10.3.min.js" type="text/javascript"></script>
-        <!-- Bootstrap -->
-        <script src="js/bootstrap.min.js" type="text/javascript"></script>
-        <!-- daterangepicker -->
-        <script src="js/plugins/daterangepicker/daterangepicker.js" type="text/javascript"></script>
+		<section class="contact" id="contact">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="section-title st-center">
+							<h3>Contact Us</h3>
+							<p>Get in Touch with Us</p>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6">
+						<form class="contact-form" role="form">
+							<input type="text" class="form-control" id="fname" name="fname" placeholder="Your Full Name">
+							<input type="email" class="form-control" id="email" name="email" placeholder="Your E-mail">
+							<input type="text" class="form-control" id="subj" name="subj" placeholder="Your Subject">
+							<textarea id="mssg" name="mssg" placeholder="Your Message" class="form-control" rows="10"></textarea>
+							<button class="btn btn-main btn-lg" type="submit" id="send" data-loading-text="<i class='fa fa-spinner fa-spin'></i> Sending..."><i class="fa fa-paper-plane "></i> Send</button>
+						</form>
+						<div id="result-message" role="alert"></div>
+					</div>
+					<div class="col-md-6">
+						<p>Homines praetore aperiam aegritudine turpe quietus, amorem errore meo horreat triario quantus rectas tollitur. Infimum audiebamus saluto disciplina praetermittenda, aspernatur vocent firmitatem contenta eademque ibidem quales efficiat. Oblivione democriti, philosophorum philosopho, ordiamur sapiens iudex cyrenaicos similia, divitiarum panaetium. Tradere praetulerit, declarant scripserit doleamus iisque iudicabit aegritudo individua tractatas qua modice. Difficilius loqueretur improbe aetatis consectetur solis velint, grata quiddam partus occulta delectari maior, theseo eveniunt, turpius nesciunt amicitias constantia seque, utraque, statu genus scriptorem fugit fuissent duxit, compluribus primos scaevolam.</p>
+						<address>
+							<strong>Twitter, Inc.</strong><br>
+							795 Folsom Ave, Suite 600<br>
+							San Francisco, CA 94107<br>
+							<abbr title="Phone">P:</abbr> (123) 456-7890
+						</address>
+					</div>
+				</div>
+			</div>
+		</section>
 
-        <script src="js/plugins/chart.js" type="text/javascript"></script>
+		<footer class="site-footer">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						&copy; <a href="https://www.cantothemes.com">CantoThemes</a> 2015.
+						<!-- Don't Remove/Edit this. If you remove this you don't have permission to use this template. -->
+						Designed by <a href="https://www.cantothemes.com">CantoThemes</a>
+						<!-- So Please don't remove this -->
+					</div>
+				</div>
+			</div>
+		</footer>
 
-        <!-- datepicker
-        <script src="js/plugins/datepicker/bootstrap-datepicker.js" type="text/javascript"></script>-->
-        <!-- Bootstrap WYSIHTML5
-        <script src="js/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js" type="text/javascript"></script>-->
-        <!-- iCheck -->
-        <script src="js/plugins/iCheck/icheck.min.js" type="text/javascript"></script>
-        <!-- calendar -->
-        <script src="js/plugins/fullcalendar/fullcalendar.js" type="text/javascript"></script>
-
-        <!-- Director App -->
-        <script src="js/Director/app.js" type="text/javascript"></script>
-
-        <!-- Director dashboard demo (This is only for demo purposes) -->
-        <script src="js/Director/dashboard.js" type="text/javascript"></script>
-
-        <!-- Director for demo purposes -->
-        <script type="text/javascript">
-            $('input').on('ifChecked', function(event) {
-                // var element = $(this).parent().find('input:checkbox:first');
-                // element.parent().parent().parent().addClass('highlight');
-                $(this).parents('li').addClass("task-done");
-                console.log('ok');
-            });
-            $('input').on('ifUnchecked', function(event) {
-                // var element = $(this).parent().find('input:checkbox:first');
-                // element.parent().parent().parent().removeClass('highlight');
-                $(this).parents('li').removeClass("task-done");
-                console.log('not');
-            });
-
-        </script>
-        <script>
-            $('#noti-box').slimScroll({
-                height: '400px',
-                size: '5px',
-                BorderRadius: '5px'
-            });
-
-            $('input[type="checkbox"].flat-grey, input[type="radio"].flat-grey').iCheck({
-                checkboxClass: 'icheckbox_flat-grey',
-                radioClass: 'iradio_flat-grey'
-            });
-</script>
-<script type="text/javascript">
-    $(function() {
-                "use strict";
-                //BAR CHART
-                var data = {
-                    labels: ["January", "February", "March", "April", "May", "June", "July"],
-                    datasets: [
-                        {
-                            label: "My First dataset",
-                            fillColor: "rgba(220,220,220,0.2)",
-                            strokeColor: "rgba(220,220,220,1)",
-                            pointColor: "rgba(220,220,220,1)",
-                            pointStrokeColor: "#fff",
-                            pointHighlightFill: "#fff",
-                            pointHighlightStroke: "rgba(220,220,220,1)",
-                            data: [65, 59, 80, 81, 56, 55, 40]
-                        },
-                        {
-                            label: "My Second dataset",
-                            fillColor: "rgba(151,187,205,0.2)",
-                            strokeColor: "rgba(151,187,205,1)",
-                            pointColor: "rgba(151,187,205,1)",
-                            pointStrokeColor: "#fff",
-                            pointHighlightFill: "#fff",
-                            pointHighlightStroke: "rgba(151,187,205,1)",
-                            data: [28, 48, 40, 19, 86, 27, 90]
-                        }
-                    ]
-                };
-            new Chart(document.getElementById("linechart").getContext("2d")).Line(data,{
-                responsive : true,
-                maintainAspectRatio: false,
-            });
-
-            });
-            // Chart.defaults.global.responsive = true;
-</script>
-</body>
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+		<script src="web/js/jquery.min.js"></script>
+		<!-- Include all compiled plugins (below), or include individual files as needed -->
+		<script src="web/js/bootstrap.min.js"></script>
+		<script src="web/js/jquery.easing.min.js"></script>
+		<script src="web/js/jquery.stellar.js"></script>
+		<script src="web/js/jquery.appear.js"></script>
+		<script src="web/js/jquery.nicescroll.min.js"></script>
+		<script src="web/js/jquery.countTo.js"></script>
+		<script src="web/js/jquery.shuffle.modernizr.js"></script>
+		<script src="web/js/jquery.shuffle.js"></script>
+		<script src="web/js/owl.carousel.js"></script>
+		<script src="web/js/jquery.ajaxchimp.min.js"></script>
+		<script src="web/js/script.js"></script>
+	</body>
 </html>

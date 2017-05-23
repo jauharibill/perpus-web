@@ -1,25 +1,25 @@
 <?php
-include ("conn.php");
-date_default_timezone_set('Asia/Jakarta');
+
+include_once "conn.php";
+// date_default_timezone_set('Asia/Jakarta');
 
 session_start();
 
 $username = $_POST['username'];
 $password = $_POST['password'];
-
 $username = mysqli_real_escape_string($conn, $username);
 $password = mysqli_real_escape_string($conn, $password);
 
 if (empty($username) && empty($password)) {
-	header('location:login.html?error1');
+	// header('location:login.html?error1');
 } else if (empty($username)) {
-	header('location:login.html?error=2');
+	// header('location:login.html?error=2');
 } else if (empty($password)) {
-	header('location:login.html?error=3');
+	// header('location:login.html?error=3');
 }
 
-$q = mysqli_query($conn, "select * from admin where username='$username' and password='$password'");
-$row = mysqli_fetch_array ($q);
+$q 		= mysqli_query($conn, "select * from admin where username='$username' and password='$password'");
+$row 	= mysqli_fetch_array ($q);
 
 if (mysqli_num_rows($q) == 1) {
     $_SESSION['user_id'] = $row['user_id'];
@@ -29,6 +29,6 @@ if (mysqli_num_rows($q) == 1) {
 
 	header('location:admin/index.php');
 } else {
-	header('location:login.html?error=4');
+	// header('location:login.php?error=4');
 }
 ?>
