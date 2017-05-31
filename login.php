@@ -73,7 +73,7 @@
       </tr> 
       <br />
       <tr>
-      <td>Blog</td>       <td>:</td> <td><a href="http://www.hakkoblogs.com" target="_blank">www.hakkoblogs.com</a></td>
+      <td>Blog</td>       <td>:</td> <td><a href="#" target="_blank">www.hakkoblogs.com</a></td>
       </tr>
       <br />
       <tr>

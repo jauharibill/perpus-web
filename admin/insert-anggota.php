@@ -5,7 +5,7 @@ include "../conn.php";
 
 if (!empty($_FILES["nama_file"]["tmp_name"]))
 {
-	$jenis_gambar=$_FILES['nama_file']['type'];
+		$jenis_gambar=$_FILES['nama_file']['type'];
         $id = $_POST['id'];
         $no_induk = $_POST['no_induk'];
 		$nama= $_POST['nama'];

@@ -40,7 +40,7 @@
 							<span class="icon-bar"></span>
 							<span class="icon-bar"></span>
 						</button>
-						<a class="navbar-brand" href="#"><span class="fa fa-book"></span> Perpustakaan</a>
+						<a class="navbar-brand" href="#" style="background: white;padding: 10px"><img src="web/images/logo.png" class="img-rounded" ></a>
 					</div>
 					<!-- Collect the nav links, forms, and other content for toggling -->
 					<div class="collapse navbar-collapse main-nav" id="sept-main-nav">
@@ -108,10 +108,10 @@
 						</div>
 						<div class="row mb90">
 							<div class="col-md-6">
-								<p>Texit l, habere se indocti magnosque culpa gravioribus discedere eas indignae diogenem, praetermissum effugiendorum vult dicent, periculum dolere putat. Iucunditatem quid turbulenta patre eae depravatum talem elaborare plerisque repellere, o potiendi tuo aliter, militaris sint tranquillat liberalitati. Locus delicata divelli intemperantes audeam maximisque sitne pulcherrimum aegritudines studium. Habent inveniri fidelissimae aequi andriam laudabilis. Libido censet assiduitas quae probantur tantalo exquisitaque erunt laudatur optari. Late suapte veterum enim qui magna securi eaque proficiscuntur.</p>
+								<p>Website ini di gunakan untuk melakukan pencarian dan traksaksi peminjaman buku dan membaca buku.</p>
 							</div>
 							<div class="col-md-6">
-								<img src="web/photos/about.jpg" alt="" class="img-responsive">
+								<img src="web/images/thumbnail.jpg" alt="" class="img-responsive">
 							</div>
 						</div>
 					</div>
@@ -141,12 +141,12 @@
 						<div id="result-message" role="alert"></div>
 					</div>
 					<div class="col-md-6">
-						<p>Homines praetore aperiam aegritudine turpe quietus, amorem errore meo horreat triario quantus rectas tollitur. Infimum audiebamus saluto disciplina praetermittenda, aspernatur vocent firmitatem contenta eademque ibidem quales efficiat. Oblivione democriti, philosophorum philosopho, ordiamur sapiens iudex cyrenaicos similia, divitiarum panaetium. Tradere praetulerit, declarant scripserit doleamus iisque iudicabit aegritudo individua tractatas qua modice. Difficilius loqueretur improbe aetatis consectetur solis velint, grata quiddam partus occulta delectari maior, theseo eveniunt, turpius nesciunt amicitias constantia seque, utraque, statu genus scriptorem fugit fuissent duxit, compluribus primos scaevolam.</p>
+						<p>hubungi kami untuk info lebih lanjut</p>
 						<address>
-							<strong>Twitter, Inc.</strong><br>
-							795 Folsom Ave, Suite 600<br>
-							San Francisco, CA 94107<br>
-							<abbr title="Phone">P:</abbr> (123) 456-7890
+							<strong>UIN MALANG.</strong><br>
+							Jln MT Haryono 50 <br>
+							Malang, 65144<br>
+							<abbr title="Phone">P:</abbr> (+62) 89618 904 236
 						</address>
 					</div>
 				</div>
@@ -157,9 +157,9 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-12">
-						&copy; <a href="https://www.cantothemes.com">CantoThemes</a> 2015.
+						&copy; Bill And Darmo Group <!-- <a href="https://www.cantothemes.com">CantoThemes</a> --> <?php echo Date("Y"); ?>.
 						<!-- Don't Remove/Edit this. If you remove this you don't have permission to use this template. -->
-						Designed by <a href="https://www.cantothemes.com">CantoThemes</a>
+						<!-- Designed by <a href="https://www.cantothemes.com">CantoThemes</a> -->
 						<!-- So Please don't remove this -->
 					</div>
 				</div>

@@ -24,7 +24,7 @@
     	<?php while($book = mysqli_fetch_assoc($books)) { ?>
     	  <div class="col-md-2">
     	    <div class="thumbnail">
-    	      <img src="http://lorempixel.com/150/150/">
+    	      <img src="<?php echo "admin/gambar_buku/".$book['photo']; ?>">
     	      <div class="caption">
     	        <h3><?php echo $book['judul']; ?></h3>
     	        <p><?php echo $book['penerbit']; ?></p>

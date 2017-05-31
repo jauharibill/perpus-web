@@ -1,4 +1,7 @@
-      <?php include_once "layouts/header.php"; ?>
+      <?php 
+      include_once "layouts/header.php";
+      include_once "../conn.php";
+       ?>
                 <!-- Main content -->
                 <section class="content">
 
@@ -6,7 +9,7 @@
                         <div class="col-xs-12">
                             <div class="panel">
                                 <header class="panel-heading">
-                                    <b>Input Anggota</b>
+                                    <b>Input buku</b>
 
                                 </header>
                                 <!-- <div class="box-header"> -->
@@ -15,17 +18,16 @@
                                 <!-- </div> -->
                                 <div class="panel-body">
                       <form class="form-horizontal style-form" style="margin-top: 20px;" action="insert-buku.php" method="post" enctype="multipart/form-data" name="form1" id="form1">
-                          <!-- <div class="form-group">
-                              <label class="col-sm-2 col-sm-2 control-label">ID Buku</label>
-                              <div class="col-sm-8">
-                                  <input name="id" type="text" id="id" class="form-control" placeholder="ID Buku" autofocus="on" />
-                              </div>
-                          </div> -->
                           <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label">Judul Buku</label>
                               <div class="col-sm-8">
                                   <input name="judul" type="text" id="judul" class="form-control" placeholder="Judul Buku" required />
-                                  <!--<span class="help-block">A block of help text that breaks onto a new line and may extend beyond one line.</span>-->
+                              </div>
+                          </div>
+                          <div class="form-group">
+                              <label class="col-sm-2 col-sm-2 control-label">Photo Buku</label>
+                              <div class="col-sm-8">
+                                  <input name="photo" type="file" id="photo" class="form-control" placeholder="photo" required />
                               </div>
                           </div>
                           <div class="form-group">
@@ -37,7 +39,13 @@
                           <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label">Tahun Terbit</label>
                               <div class="col-sm-8">
-                                  <input name="th_terbit" type="text" id="tahun_terbit" class="form-control" placeholder="Tahun Terbit" required />
+                              <select id="tahun_terbit" name="th_terbit" class="form-control">
+                                <?php for ($i=0; $i < 20; $i++) { 
+                                  ?>
+                                    <option value="<?php echo 2000+$i; ?>"><?php echo 2000+$i; ?></option>
+                                  <?php
+                                } ?>
+                                </select>
                               </div>
                           </div>
                           <div class="form-group">
@@ -47,26 +55,18 @@
                               </div>
                           </div>
                           <div class="form-group">
-                              <label class="col-sm-2 col-sm-2 control-label">ISBN</label>
-                              <div class="col-sm-8">
-                                  <input name="isbn" type="text" id="isbn" class="form-control" placeholder="ISBN" required />
-                              </div>
-                          </div>
-                          <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label">Kategori</label>
                               <div class="col-sm-8">
-                                <input type="text" name="kategori"  id="kategori" class="form-control" placeholder="Kategori">
-                                  <!-- <select class="form-control" name="kategori" id="kategori">
-                                  <option> -- Pilih Salah Satu --</option>
-                                  <option value="L"> Laki - Laki</option>
-                                  <option value="P"> Perempuan</option>
-                                  </select> -->
-                              </div>
-                          </div>
-                          <div class="form-group">
-                              <label class="col-sm-2 col-sm-2 control-label">Kelas</label>
-                              <div class="col-sm-8">
-                                  <input name="kode_klas" class="form-control" id="kelas" type="text" placeholder="Kelas" required />
+                                
+                                  <select class="form-control" name="kategori"  id="kategori">
+                                  <option> -- Pilih Kategori --</option>
+                                  <?php
+                                    $query = mysqli_query($conn, "SELECT * FROM kategori_buku");
+                                    while($kategori = mysqli_fetch_assoc($query)) {
+                                   ?> 
+                                  <option value="<?php echo $kategori['id'] ?>"> <?php echo $kategori['name'] ?></option>
+                                  <?php } ?>
+                                  </select>
                               </div>
                           </div>
                           <div class="form-group">
@@ -75,24 +75,7 @@
                                   <input name="jumlah_buku" class="form-control" id="jumlah_buku" type="text" placeholder="Jumlah Buku" required />
                               </div>
                           </div>
-                          <div class="form-group">
-                              <label class="col-sm-2 col-sm-2 control-label">Lokasi</label>
-                              <div class="col-sm-8">
-                                  <input name="lokasi" class="form-control" id="lokasi" type="text" placeholder="Lokasi" required />
-                              </div>
-                          </div>
-                          <div class="form-group">
-                              <label class="col-sm-2 col-sm-2 control-label">Asal</label>
-                              <div class="col-sm-8">
-                                  <input name="asal" id="asal" type="text" class="form-control" placeholder="Asal" />
-                              </div>
-                          </div>
-                          <div class="form-group">
-                              <label class="col-sm-2 col-sm-2 control-label">Jum Temp</label>
-                              <div class="col-sm-8">
-                                  <input name="jump_temp" id="jump_temp" type="text" class="form-control" placeholder="Jump Temp" />
-                              </div>
-                          </div>
+      
                           <div class="form-group" style="margin-bottom: 20px;">
                               <label class="col-sm-2 col-sm-2 control-label"></label>
                               <div class="col-sm-8">

@@ -163,7 +163,7 @@ $_SESSION['start_time'] = time();
                                 <!-- </div> -->
                                 <div class="panel-body table-responsive">
                                 <h1><b>
-                                    GARAP LAPORAN PIT !!!</b></h1>
+                                    Buku yang anda cari tidak ada</b></h1>
                                 
                                 </div><!-- /.box-body -->
                             </div><!-- /.box -->
@@ -172,7 +172,7 @@ $_SESSION['start_time'] = time();
               <!-- row end -->
                 </section><!-- /.content -->
                 <div class="footer-main">
-                    Copyright &copy <a href="http://www.hakkoblogs.com" target="_blank">Perpustaan WebUIN Malang</a> 2016
+                    Copyright &copy <a href="#" target="_blank">Perpustaan WebUIN Malang</a> 2016
                 </div>
             </aside><!-- /.right-side -->
 

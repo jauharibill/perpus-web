@@ -38,24 +38,26 @@
                                     <table id="example" class="table table-hover table-bordered">
                                       <thead>
                                           <tr>
+                                            <th><center>Photo </center></th>
                                             <th><center>Judul </center></th>
                                             <th><center>Pengarang </center></th>
                                             <th><center>Tahun Terbit </center></th>
                                             <th><center>Penerbit </center></th>
                                             <th><center>Jumlah </center></th>
-                                            <th><center>Lokasi </center></th>
+                                            <th><center>Aksi</center></th>
                                           </tr>
                                       </thead>
                                      <?php while($data=mysqli_fetch_array($tampil))
                                     { ?>
                                     <tbody>
                                         <tr>
-                                        <td><a href="404.php?hal=edit&kd=<?php echo $data['id'];?>"><span class="fa fa-book"></span> <?php echo $data['judul']; ?></a></td>
+                                        <td><img src="<?php echo 'gambar_buku/'.$data['photo']; ?>" width=200></td>
+                                        <td><?php echo $data['judul']; ?></td>
                                         <td><?php echo $data['pengarang']; ?></td>
                                         <td><?php echo $data['th_terbit'];?></td>
                                         <td><?php echo $data['penerbit'];?></td>
                                         <td><?php echo $data['jumlah_buku'];?></td>
-                                        <td><?php echo $data['lokasi'];?></td>
+                                        <td><button class="btn btn-danger"><span class="fa fa-trash"></span>Delete</button></td>
                                     <?php   
                                   } 
                                   ?>

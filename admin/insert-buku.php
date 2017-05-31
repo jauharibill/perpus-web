@@ -1,27 +1,34 @@
 <?php
 
-		$namafolder="gambar_anggota/"; //tempat menyimpan file
-		include "../conn.php";
+        include "../conn.php";
 
         $judul = $_POST['judul'];
-		$pengarang= $_POST['pengarang'];
-		$th_terbit= $_POST['th_terbit'];
-		$penerbit= $_POST['penerbit'];
-		$isbn= $_POST['isbn'];
-		$kategori= $_POST['kategori'];
-        $kode_klas = $_POST['kode_klas'];
+	$pengarang= $_POST['pengarang'];
+	$th_terbit= $_POST['th_terbit'];
+	$penerbit= $_POST['penerbit'];
+	$kategori= $_POST['kategori'];
         $jumlah_buku = $_POST['jumlah_buku'];
-        $lokasi = $_POST['lokasi'];
-        $asal = $_POST['asal'];
         $jum_temp = $_POST['jump_temp'];
         $tgl_input = Date();
-        $query = mysqli_query($conn, "INSERT INTO data_buku (`judul`, `pengarang`, `th_terbit`, `penerbit`, `isbn`, `kategori`, `kode_klas`, `jumlah_buku`, `lokasi`, `asal`, `jum_temp`, `tgl_input`) values('$judul', '$pengarang', '$th_terbit', '$penerbit', '$isbn', '$kategori', '$kode_klas', '$jumlah_buku', '$lokasi', '$asal', '$jum_temp', '$tgl_input')") or die(mysqli_error($conn));
-        if ($query) {
-        	echo "Data sudah Masuk";
-        	header("Location: input-buku.php");
+
+        $photo = $_FILES['photo'];
+        $extension = explode('.', $photo['name']);
+        $name  = md5($photo['name']).".".$extension[1];
+        $destinasi = "gambar_buku/";
+        if(move_uploaded_file($photo['tmp_name'], $destinasi.$name)){
+                $string = "INSERT INTO data_buku (`judul`, `photo`, `pengarang`, `th_terbit`, `penerbit`,`kategori`, `jumlah_buku`) values('$judul', '$name', '$pengarang', '$th_terbit', '$penerbit', '$kategori', '$jumlah_buku')";
+                $query = mysqli_query($conn, $string) or die(mysqli_error($conn));
+                if ($query) {
+                        echo "Data sudah Masuk";
+                        header("Location: input-buku.php");
+                }else{
+                        echo "Data belum Masuk";
+                }        
         }else{
-        	echo "Data belum Masuk";
+                echo "Error";
         }
+
+        
         
 
 ?>

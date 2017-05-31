@@ -1,5 +1,5 @@
 <div class="footer-main">
-                    Copyright &copy <a href="http://www.hakkoblogs.com" target="_blank">PerPusWeb</a> 2015
+                    Copyright &copy <a href="#" target="_blank">PerPusWeb</a> 2015
                 </div>
             </aside><!-- /.right-side -->
 

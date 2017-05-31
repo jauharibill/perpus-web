@@ -17,7 +17,7 @@
          
             <form class="navbar-form navbar-left" method="GET" action="">
               <div class="form-group">
-                <input type="text" class="form-control" placeholder="Search" name="q">
+                <input type="text" class="form-control" placeholder="Search" name="q" value="<?php echo @$_GET['q']; ?>">
               </div>
               <button type="submit" class="btn btn-default">Cari</button>
             </form>
